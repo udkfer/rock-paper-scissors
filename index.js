@@ -45,7 +45,7 @@ function playRound(humanChoice) {
 
   roundCounter++;
 
-  scoreBoard.textContent = `Human : ${humanScore} - Computer ${computerScore}`;
+  scoreBoard.textContent = `Human: ${humanScore} - Computer: ${computerScore}`;
   resultDiv.textContent = resultMessage;
 
   if (roundCounter >= maxRounds) {
