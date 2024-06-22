@@ -8,12 +8,14 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 const maxRounds = 5;
+let resetButton;
 
 const scoreBoard = document.getElementById("scoreBoard");
 const resultDiv = document.getElementById("result");
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
+const buttonsDiv = document.querySelector(".buttons");
 
 rockButton.addEventListener("click", () => playRound("rock"));
 paperButton.addEventListener("click", () => playRound("paper"));
@@ -58,6 +60,12 @@ function playRound(humanChoice) {
     rockButton.disabled = true;
     paperButton.disabled = true;
     scissorsButton.disabled = true;
+
+    resetButton = document.createElement("button");
+    resetButton.textContent = "RESET";
+    resetButton.id = "reset";
+    resetButton.addEventListener("click", resetGame);
+    buttonsDiv.appendChild(resetButton);
   }
 }
 
@@ -71,7 +79,6 @@ function resetGame() {
   rockButton.disabled = false;
   paperButton.disabled = false;
   scissorsButton.disabled = false;
-}
 
-const resetButton = document.getElementById("reset");
-resetButton.addEventListener("click", resetGame);
+  buttonsDiv.removeChild(resetButton);
+}
